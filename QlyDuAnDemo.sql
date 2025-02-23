@@ -1,3 +1,4 @@
+
 CREATE TABLE TaiKhoan (
     IDTaiKhoan CHAR(100) PRIMARY KEY,
     QuyenTaiKhoan CHAR(10),
@@ -21,7 +22,8 @@ CREATE TABLE TruongNhom (
     GioiTinh CHAR(10),
     SDT INT NOT NULL,
     Email CHAR(255) NOT NULL,
-    IDAdmin CHAR(100)
+    IDAdmin CHAR(100),
+    IDTaiKhoan CHAR(100)
 );
 
 CREATE TABLE NhanVien (
@@ -84,6 +86,7 @@ CREATE TABLE TaiLieu (
 
 ALTER TABLE Admin ADD FOREIGN KEY (IDTaiKhoan) REFERENCES TaiKhoan(IDTaiKhoan);
 ALTER TABLE TruongNhom ADD FOREIGN KEY (IDAdmin) REFERENCES Admin(IDAdmin);
+ALTER TABLE TruongNhom ADD FOREIGN KEY (IDTaiKhoan) REFERENCES TaiKhoan(IDTaiKhoan);
 ALTER TABLE NhanVien ADD FOREIGN KEY (IDAdmin) REFERENCES Admin(IDAdmin);
 ALTER TABLE NhanVien ADD FOREIGN KEY (IDNhomLamViec) REFERENCES NhomLamViec(IDNhomLamViec);
 ALTER TABLE NhanVien ADD FOREIGN KEY (IDNguoiQuanLy) REFERENCES TruongNhom(IDTruongNhom);
