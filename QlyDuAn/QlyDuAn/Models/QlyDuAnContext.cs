@@ -33,6 +33,9 @@ public partial class QlyDuAnContext : DbContext
 
     public virtual DbSet<TruongNhom> TruongNhoms { get; set; }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlServer("Name=DefaultConnection");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Admin>(entity =>
