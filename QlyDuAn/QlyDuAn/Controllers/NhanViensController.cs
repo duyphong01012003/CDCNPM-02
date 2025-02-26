@@ -29,7 +29,7 @@ namespace QlyDuAn.Controllers
 
         // GET: api/NhanViens/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<NhanVien>> GetNhanVien(string id)
+        public async Task<ActionResult<NhanVien>> GetNhanVien(int id)
         {
             var nhanVien = await _context.NhanViens.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace QlyDuAn.Controllers
         // PUT: api/NhanViens/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutNhanVien(string id, NhanVien nhanVien)
+        public async Task<IActionResult> PutNhanVien(int id, NhanVien nhanVien)
         {
             if (id != nhanVien.IdnhanVien)
             {
@@ -78,28 +78,14 @@ namespace QlyDuAn.Controllers
         public async Task<ActionResult<NhanVien>> PostNhanVien(NhanVien nhanVien)
         {
             _context.NhanViens.Add(nhanVien);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (NhanVienExists(nhanVien.IdnhanVien))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetNhanVien", new { id = nhanVien.IdnhanVien }, nhanVien);
         }
 
         // DELETE: api/NhanViens/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteNhanVien(string id)
+        public async Task<IActionResult> DeleteNhanVien(int id)
         {
             var nhanVien = await _context.NhanViens.FindAsync(id);
             if (nhanVien == null)
@@ -113,7 +99,7 @@ namespace QlyDuAn.Controllers
             return NoContent();
         }
 
-        private bool NhanVienExists(string id)
+        private bool NhanVienExists(int id)
         {
             return _context.NhanViens.Any(e => e.IdnhanVien == id);
         }

@@ -78,21 +78,7 @@ namespace QlyDuAn.Controllers
         public async Task<ActionResult<NhomLamViec>> PostNhomLamViec(NhomLamViec nhomLamViec)
         {
             _context.NhomLamViecs.Add(nhomLamViec);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (NhomLamViecExists(nhomLamViec.IdnhomLamViec))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetNhomLamViec", new { id = nhomLamViec.IdnhomLamViec }, nhomLamViec);
         }

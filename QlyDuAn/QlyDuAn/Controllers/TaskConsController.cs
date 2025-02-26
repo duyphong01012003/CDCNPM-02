@@ -78,21 +78,7 @@ namespace QlyDuAn.Controllers
         public async Task<ActionResult<TaskCon>> PostTaskCon(TaskCon taskCon)
         {
             _context.TaskCons.Add(taskCon);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (TaskConExists(taskCon.IdtaskCon))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTaskCon", new { id = taskCon.IdtaskCon }, taskCon);
         }

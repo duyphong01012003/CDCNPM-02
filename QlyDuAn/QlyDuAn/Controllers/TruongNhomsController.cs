@@ -29,7 +29,7 @@ namespace QlyDuAn.Controllers
 
         // GET: api/TruongNhoms/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TruongNhom>> GetTruongNhom(string id)
+        public async Task<ActionResult<TruongNhom>> GetTruongNhom(int id)
         {
             var truongNhom = await _context.TruongNhoms.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace QlyDuAn.Controllers
         // PUT: api/TruongNhoms/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTruongNhom(string id, TruongNhom truongNhom)
+        public async Task<IActionResult> PutTruongNhom(int id, TruongNhom truongNhom)
         {
             if (id != truongNhom.IdtruongNhom)
             {
@@ -78,28 +78,14 @@ namespace QlyDuAn.Controllers
         public async Task<ActionResult<TruongNhom>> PostTruongNhom(TruongNhom truongNhom)
         {
             _context.TruongNhoms.Add(truongNhom);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (TruongNhomExists(truongNhom.IdtruongNhom))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTruongNhom", new { id = truongNhom.IdtruongNhom }, truongNhom);
         }
 
         // DELETE: api/TruongNhoms/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTruongNhom(string id)
+        public async Task<IActionResult> DeleteTruongNhom(int id)
         {
             var truongNhom = await _context.TruongNhoms.FindAsync(id);
             if (truongNhom == null)
@@ -113,7 +99,7 @@ namespace QlyDuAn.Controllers
             return NoContent();
         }
 
-        private bool TruongNhomExists(string id)
+        private bool TruongNhomExists(int id)
         {
             return _context.TruongNhoms.Any(e => e.IdtruongNhom == id);
         }

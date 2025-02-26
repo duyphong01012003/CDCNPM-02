@@ -29,7 +29,7 @@ namespace QlyDuAn.Controllers
 
         // GET: api/Tasks/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Models.Task>> GetTask(string id)
+        public async Task<ActionResult<Models.Task>> GetTask(int id)
         {
             var task = await _context.Tasks.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace QlyDuAn.Controllers
         // PUT: api/Tasks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTask(string id, Models.Task task)
+        public async Task<IActionResult> PutTask(int id, Models.Task task)
         {
             if (id != task.Idtask)
             {
@@ -78,28 +78,14 @@ namespace QlyDuAn.Controllers
         public async Task<ActionResult<Models.Task>> PostTask(Models.Task task)
         {
             _context.Tasks.Add(task);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (TaskExists(task.Idtask))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTask", new { id = task.Idtask }, task);
         }
 
         // DELETE: api/Tasks/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTask(string id)
+        public async Task<IActionResult> DeleteTask(int id)
         {
             var task = await _context.Tasks.FindAsync(id);
             if (task == null)
@@ -113,7 +99,7 @@ namespace QlyDuAn.Controllers
             return NoContent();
         }
 
-        private bool TaskExists(string id)
+        private bool TaskExists(int id)
         {
             return _context.Tasks.Any(e => e.Idtask == id);
         }

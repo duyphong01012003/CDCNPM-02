@@ -7,9 +7,11 @@ public partial class NhomLamViec
 {
     public int IdnhomLamViec { get; set; }
 
+    public string? CodeNhom { get; set; }
+
     public int? SoThanhVien { get; set; }
 
-    public string? IdnguoiQuanLy { get; set; }
+    public int? IdnguoiQuanLy { get; set; }
 
     public string? TenNhom { get; set; }
 

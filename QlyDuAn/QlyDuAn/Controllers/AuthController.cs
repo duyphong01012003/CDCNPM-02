@@ -18,7 +18,7 @@ namespace QlyDuAn.Controllers
 		[HttpPost("login")]
 		public async Task<IActionResult> Login([FromBody] LoginRequest request)
 		{
-			var user = await _authService.LoginAsync(request.Sdt, request.Password);
+			var user = await _authService.LoginAsync(request.Code, request.Password);
 
 			if (user == null)
 			{
@@ -31,7 +31,7 @@ namespace QlyDuAn.Controllers
 
 	public class LoginRequest
 	{
-		public string Sdt { get; set; }
+		public string Code { get; set; }
 		public string Password { get; set; }
 	}
 }

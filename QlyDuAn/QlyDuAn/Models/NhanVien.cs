@@ -5,25 +5,27 @@ namespace QlyDuAn.Models;
 
 public partial class NhanVien
 {
-    public string IdnhanVien { get; set; } = null!;
+    public int IdnhanVien { get; set; }
+
+    public string? CodeNhanVien { get; set; }
 
     public string? HoTenNhanVien { get; set; }
 
-    public DateOnly? NgaySinh { get; set; }
-
     public string? GioiTinh { get; set; }
 
-    public string Sdt { get; set; }
+    public DateOnly? NgaySinh { get; set; }
+
+    public string Sdt { get; set; } = null!;
 
     public string Email { get; set; } = null!;
 
-    public string? Idadmin { get; set; }
+    public int? Idadmin { get; set; }
 
     public int? IdnhomLamViec { get; set; }
 
-    public string? IdnguoiQuanLy { get; set; }
+    public int? IdnguoiQuanLy { get; set; }
 
-    public string? IdtaiKhoan { get; set; }
+    public int? IdtaiKhoan { get; set; }
 
     public virtual Admin? IdadminNavigation { get; set; }
 

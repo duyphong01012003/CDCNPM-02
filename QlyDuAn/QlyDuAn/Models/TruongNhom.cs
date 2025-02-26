@@ -5,21 +5,23 @@ namespace QlyDuAn.Models;
 
 public partial class TruongNhom
 {
-    public string IdtruongNhom { get; set; } = null!;
+    public int IdtruongNhom { get; set; }
+
+    public string? CodeTruongNhom { get; set; }
 
     public string? HoTenTruongNhom { get; set; }
 
-    public DateOnly? NgaySinh { get; set; }
-
     public string? GioiTinh { get; set; }
 
-    public int Sdt { get; set; }
+    public DateOnly? NgaySinh { get; set; }
+
+    public string Sdt { get; set; } = null!;
 
     public string Email { get; set; } = null!;
 
-    public string? Idadmin { get; set; }
+    public int? Idadmin { get; set; }
 
-    public string? IdtaiKhoan { get; set; }
+    public int? IdtaiKhoan { get; set; }
 
     public virtual ICollection<DuAn> DuAns { get; set; } = new List<DuAn>();
 

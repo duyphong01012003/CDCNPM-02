@@ -29,7 +29,7 @@ namespace QlyDuAn.Controllers
 
         // GET: api/TaiLieux/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TaiLieu>> GetTaiLieu(string id)
+        public async Task<ActionResult<TaiLieu>> GetTaiLieu(int id)
         {
             var taiLieu = await _context.TaiLieus.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace QlyDuAn.Controllers
         // PUT: api/TaiLieux/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaiLieu(string id, TaiLieu taiLieu)
+        public async Task<IActionResult> PutTaiLieu(int id, TaiLieu taiLieu)
         {
             if (id != taiLieu.IdtaiLieu)
             {
@@ -78,28 +78,14 @@ namespace QlyDuAn.Controllers
         public async Task<ActionResult<TaiLieu>> PostTaiLieu(TaiLieu taiLieu)
         {
             _context.TaiLieus.Add(taiLieu);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (TaiLieuExists(taiLieu.IdtaiLieu))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTaiLieu", new { id = taiLieu.IdtaiLieu }, taiLieu);
         }
 
         // DELETE: api/TaiLieux/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTaiLieu(string id)
+        public async Task<IActionResult> DeleteTaiLieu(int id)
         {
             var taiLieu = await _context.TaiLieus.FindAsync(id);
             if (taiLieu == null)
@@ -113,7 +99,7 @@ namespace QlyDuAn.Controllers
             return NoContent();
         }
 
-        private bool TaiLieuExists(string id)
+        private bool TaiLieuExists(int id)
         {
             return _context.TaiLieus.Any(e => e.IdtaiLieu == id);
         }

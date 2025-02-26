@@ -29,7 +29,7 @@ namespace QlyDuAn.Controllers
 
         // GET: api/TaiKhoans/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TaiKhoan>> GetTaiKhoan(string id)
+        public async Task<ActionResult<TaiKhoan>> GetTaiKhoan(int id)
         {
             var taiKhoan = await _context.TaiKhoans.FindAsync(id);
 
@@ -44,9 +44,9 @@ namespace QlyDuAn.Controllers
         // PUT: api/TaiKhoans/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaiKhoan(string id, TaiKhoan taiKhoan)
+        public async Task<IActionResult> PutTaiKhoan(int id, TaiKhoan taiKhoan)
         {
-            if (id != taiKhoan.IdtaiKhoan)
+			if (id != taiKhoan.IdtaiKhoan)
             {
                 return BadRequest();
             }
@@ -77,29 +77,20 @@ namespace QlyDuAn.Controllers
         [HttpPost]
         public async Task<ActionResult<TaiKhoan>> PostTaiKhoan(TaiKhoan taiKhoan)
         {
-            _context.TaiKhoans.Add(taiKhoan);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (TaiKhoanExists(taiKhoan.IdtaiKhoan))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+			if (string.IsNullOrEmpty(taiKhoan.MatKhau))
+			{
+				taiKhoan.MatKhau = "12345678";
+			}
+
+			_context.TaiKhoans.Add(taiKhoan);
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTaiKhoan", new { id = taiKhoan.IdtaiKhoan }, taiKhoan);
         }
 
         // DELETE: api/TaiKhoans/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTaiKhoan(string id)
+        public async Task<IActionResult> DeleteTaiKhoan(int id)
         {
             var taiKhoan = await _context.TaiKhoans.FindAsync(id);
             if (taiKhoan == null)
@@ -113,7 +104,7 @@ namespace QlyDuAn.Controllers
             return NoContent();
         }
 
-        private bool TaiKhoanExists(string id)
+        private bool TaiKhoanExists(int id)
         {
             return _context.TaiKhoans.Any(e => e.IdtaiKhoan == id);
         }

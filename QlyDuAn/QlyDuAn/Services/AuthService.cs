@@ -16,34 +16,33 @@ namespace QlyDuAn.Services
 			this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
 		}
 
-		public async Task<TaiKhoan> LoginAsync(string sdt, string password)
+		public async Task<TaiKhoan> LoginAsync(string code, string password)
 		{
-			if (string.IsNullOrWhiteSpace(sdt) || string.IsNullOrWhiteSpace(password))
+			if (string.IsNullOrWhiteSpace(code) || string.IsNullOrWhiteSpace(password))
 			{
 				return null;
 			}
 
 			// Tìm kiếm user trong cơ sở dữ liệu (sử dụng StringComparison.OrdinalIgnoreCase)
-			var user = dbContext.TaiKhoans
-				.AsEnumerable() // ⚠ Chuyển sang xử lý trên bộ nhớ
-				.FirstOrDefault(u => u.IdtaiKhoan.Equals(sdt.Trim(), StringComparison.OrdinalIgnoreCase));
-
-			//int sdtInt;
-			//if (!int.TryParse(sdt, out sdtInt))
-			//{
-			//	return null; // Nếu không thể chuyển đổi, trả về null
-			//}
-
-			//var user = await dbContext.TaiKhoans
-			//	.Join(dbContext.NhanViens,
-			//		  tk => tk.IdtaiKhoan,
-			//		  nv => nv.IdnhanVien,
-			//		  (tk, nv) => new { TaiKhoan = tk, NhanVien = nv })
-			//	.Where(x => x.NhanVien.Sdt == sdtInt) // So sánh số điện thoại dưới dạng số nguyên
-			//	.Select(x => x.TaiKhoan)
-			//	.FirstOrDefaultAsync();
+			//var user = dbContext.TaiKhoans
+			//	.AsEnumerable() // ⚠ Chuyển sang xử lý trên bộ nhớ
+			//	.FirstOrDefault(u => u.IdtaiKhoan.Equals(sdt.Trim(), StringComparison.OrdinalIgnoreCase));
 
 
+
+			var idTaiKhoan = await dbContext.NhanViens
+				.Where(nv => EF.Functions.Like(nv.CodeNhanVien.Trim(), code.Trim())) // Loại bỏ khoảng trắng
+				.Select(nv => nv.IdtaiKhoan)
+				.FirstOrDefaultAsync();
+
+			if (idTaiKhoan == null)
+			{
+				return null; // Không tìm thấy nhân viên có số điện thoại này
+			}
+
+			// Tìm tài khoản dựa trên IdtaiKhoan lấy được từ nhân viên
+			var user = await dbContext.TaiKhoans
+				.FirstOrDefaultAsync(tk => tk.IdtaiKhoan == idTaiKhoan);
 
 			// Kiểm tra mật khẩu (bạn nên băm mật khẩu thay vì lưu plaintext)
 			if (user != null && VerifyPassword(password, user.MatKhau))

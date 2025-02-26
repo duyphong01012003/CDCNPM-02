@@ -5,7 +5,9 @@ namespace QlyDuAn.Models;
 
 public partial class Admin
 {
-    public string Idadmin { get; set; } = null!;
+    public int Idadmin { get; set; }
+
+    public string? CodeAdmin { get; set; }
 
     public string? HoTenAdmin { get; set; }
 
@@ -13,11 +15,11 @@ public partial class Admin
 
     public DateOnly? NgaySinh { get; set; }
 
-    public int Sdt { get; set; }
+    public string Sdt { get; set; } = null!;
 
     public string Email { get; set; } = null!;
 
-    public string? IdtaiKhoan { get; set; }
+    public int? IdtaiKhoan { get; set; }
 
     public virtual TaiKhoan? IdtaiKhoanNavigation { get; set; }
 

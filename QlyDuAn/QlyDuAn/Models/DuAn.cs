@@ -5,7 +5,9 @@ namespace QlyDuAn.Models;
 
 public partial class DuAn
 {
-    public string IdduAn { get; set; } = null!;
+    public int IdduAn { get; set; }
+
+    public string? CodeDuAn { get; set; }
 
     public string? TenDuAn { get; set; }
 
@@ -15,7 +17,7 @@ public partial class DuAn
 
     public string? MoTaDuAn { get; set; }
 
-    public string? IdnguoiQuanLy { get; set; }
+    public int? IdnguoiQuanLy { get; set; }
 
     public int? IdnhomLamViec { get; set; }
 

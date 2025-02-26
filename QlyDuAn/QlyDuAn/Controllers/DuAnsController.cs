@@ -29,7 +29,7 @@ namespace QlyDuAn.Controllers
 
         // GET: api/DuAns/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<DuAn>> GetDuAn(string id)
+        public async Task<ActionResult<DuAn>> GetDuAn(int id)
         {
             var duAn = await _context.DuAns.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace QlyDuAn.Controllers
         // PUT: api/DuAns/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDuAn(string id, DuAn duAn)
+        public async Task<IActionResult> PutDuAn(int id, DuAn duAn)
         {
             if (id != duAn.IdduAn)
             {
@@ -78,28 +78,14 @@ namespace QlyDuAn.Controllers
         public async Task<ActionResult<DuAn>> PostDuAn(DuAn duAn)
         {
             _context.DuAns.Add(duAn);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (DuAnExists(duAn.IdduAn))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDuAn", new { id = duAn.IdduAn }, duAn);
         }
 
         // DELETE: api/DuAns/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDuAn(string id)
+        public async Task<IActionResult> DeleteDuAn(int id)
         {
             var duAn = await _context.DuAns.FindAsync(id);
             if (duAn == null)
@@ -113,7 +99,7 @@ namespace QlyDuAn.Controllers
             return NoContent();
         }
 
-        private bool DuAnExists(string id)
+        private bool DuAnExists(int id)
         {
             return _context.DuAns.Any(e => e.IdduAn == id);
         }

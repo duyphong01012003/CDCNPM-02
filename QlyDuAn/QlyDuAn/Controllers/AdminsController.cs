@@ -29,7 +29,7 @@ namespace QlyDuAn.Controllers
 
         // GET: api/Admins/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Admin>> GetAdmin(string id)
+        public async Task<ActionResult<Admin>> GetAdmin(int id)
         {
             var admin = await _context.Admins.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace QlyDuAn.Controllers
         // PUT: api/Admins/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAdmin(string id, Admin admin)
+        public async Task<IActionResult> PutAdmin(int id, Admin admin)
         {
             if (id != admin.Idadmin)
             {
@@ -78,28 +78,14 @@ namespace QlyDuAn.Controllers
         public async Task<ActionResult<Admin>> PostAdmin(Admin admin)
         {
             _context.Admins.Add(admin);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (AdminExists(admin.Idadmin))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetAdmin", new { id = admin.Idadmin }, admin);
         }
 
         // DELETE: api/Admins/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAdmin(string id)
+        public async Task<IActionResult> DeleteAdmin(int id)
         {
             var admin = await _context.Admins.FindAsync(id);
             if (admin == null)
@@ -113,7 +99,7 @@ namespace QlyDuAn.Controllers
             return NoContent();
         }
 
-        private bool AdminExists(string id)
+        private bool AdminExists(int id)
         {
             return _context.Admins.Any(e => e.Idadmin == id);
         }
