@@ -7,7 +7,9 @@ public partial class TaskCon
 {
     public int IdtaskCon { get; set; }
 
-    public string? IdtaskCha { get; set; }
+    public string? CodeTankCon { get; set; }
+
+    public int? IdtaskCha { get; set; }
 
     public string? TenTaskCon { get; set; }
 
@@ -17,7 +19,7 @@ public partial class TaskCon
 
     public int? Deadline { get; set; }
 
-    public string? IdnguoiTaoTask { get; set; }
+    public int? IdnguoiTaoTask { get; set; }
 
     public virtual NhanVien? IdnguoiTaoTaskNavigation { get; set; }
 

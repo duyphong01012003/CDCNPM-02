@@ -5,7 +5,9 @@ namespace QlyDuAn.Models;
 
 public partial class Task
 {
-    public string Idtask { get; set; } = null!;
+    public int Idtask { get; set; }
+
+    public string? CodeTank { get; set; }
 
     public string? TenTask { get; set; }
 
@@ -15,13 +17,13 @@ public partial class Task
 
     public string? TrangThai { get; set; }
 
-    public string? IdnguoiTaoTask { get; set; }
+    public int? IdnguoiTaoTask { get; set; }
 
-    public string? IdnhanVienNhanTask { get; set; }
+    public int? IdnhanVienNhanTask { get; set; }
 
     public DateOnly? Deadline { get; set; }
 
-    public string? IdduAn { get; set; }
+    public int? IdduAn { get; set; }
 
     public virtual DuAn? IdduAnNavigation { get; set; }
 

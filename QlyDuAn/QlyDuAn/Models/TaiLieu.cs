@@ -5,11 +5,13 @@ namespace QlyDuAn.Models;
 
 public partial class TaiLieu
 {
-    public string IdtaiLieu { get; set; } = null!;
+    public int IdtaiLieu { get; set; }
+
+    public string? CodeTaiLieu { get; set; }
 
     public string? TenTaiLieu { get; set; }
 
-    public string? IdduAn { get; set; }
+    public int? IdduAn { get; set; }
 
     public DateOnly? NgayTaiLen { get; set; }
 
