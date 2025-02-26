@@ -24,24 +24,24 @@ namespace QlyDuAn.Services
 			}
 
 			// Tìm kiếm user trong cơ sở dữ liệu (sử dụng StringComparison.OrdinalIgnoreCase)
-			//var user = dbContext.TaiKhoans
-			//	.AsEnumerable() // ⚠ Chuyển sang xử lý trên bộ nhớ
-			//	.FirstOrDefault(u => u.IdtaiKhoan.Equals(sdt.Trim(), StringComparison.OrdinalIgnoreCase));
+			var user = dbContext.TaiKhoans
+				.AsEnumerable() // ⚠ Chuyển sang xử lý trên bộ nhớ
+				.FirstOrDefault(u => u.IdtaiKhoan.Equals(sdt.Trim(), StringComparison.OrdinalIgnoreCase));
 
-			int sdtInt;
-			if (!int.TryParse(sdt, out sdtInt))
-			{
-				return null; // Nếu không thể chuyển đổi, trả về null
-			}
+			//int sdtInt;
+			//if (!int.TryParse(sdt, out sdtInt))
+			//{
+			//	return null; // Nếu không thể chuyển đổi, trả về null
+			//}
 
-			var user = await dbContext.TaiKhoans
-				.Join(dbContext.NhanViens,
-					  tk => tk.IdtaiKhoan,
-					  nv => nv.IdnhanVien,
-					  (tk, nv) => new { TaiKhoan = tk, NhanVien = nv })
-				.Where(x => x.NhanVien.Sdt == sdtInt) // So sánh số điện thoại dưới dạng số nguyên
-				.Select(x => x.TaiKhoan)
-				.FirstOrDefaultAsync();
+			//var user = await dbContext.TaiKhoans
+			//	.Join(dbContext.NhanViens,
+			//		  tk => tk.IdtaiKhoan,
+			//		  nv => nv.IdnhanVien,
+			//		  (tk, nv) => new { TaiKhoan = tk, NhanVien = nv })
+			//	.Where(x => x.NhanVien.Sdt == sdtInt) // So sánh số điện thoại dưới dạng số nguyên
+			//	.Select(x => x.TaiKhoan)
+			//	.FirstOrDefaultAsync();
 
 
 

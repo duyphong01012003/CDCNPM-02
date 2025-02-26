@@ -13,7 +13,7 @@ public partial class NhanVien
 
     public string? GioiTinh { get; set; }
 
-    public int Sdt { get; set; }
+    public string Sdt { get; set; }
 
     public string Email { get; set; } = null!;
 
@@ -23,11 +23,15 @@ public partial class NhanVien
 
     public string? IdnguoiQuanLy { get; set; }
 
+    public string? IdtaiKhoan { get; set; }
+
     public virtual Admin? IdadminNavigation { get; set; }
 
     public virtual TruongNhom? IdnguoiQuanLyNavigation { get; set; }
 
     public virtual NhomLamViec? IdnhomLamViecNavigation { get; set; }
+
+    public virtual TaiKhoan? IdtaiKhoanNavigation { get; set; }
 
     public virtual ICollection<TaskCon> TaskCons { get; set; } = new List<TaskCon>();
 

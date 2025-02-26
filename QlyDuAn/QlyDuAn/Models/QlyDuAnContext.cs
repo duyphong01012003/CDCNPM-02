@@ -142,6 +142,11 @@ public partial class QlyDuAnContext : DbContext
                 .IsFixedLength()
                 .HasColumnName("IDNguoiQuanLy");
             entity.Property(e => e.IdnhomLamViec).HasColumnName("IDNhomLamViec");
+            entity.Property(e => e.IdtaiKhoan)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .IsFixedLength()
+                .HasColumnName("IDTaiKhoan");
             entity.Property(e => e.Sdt).HasColumnName("SDT");
 
             entity.HasOne(d => d.IdadminNavigation).WithMany(p => p.NhanViens)
@@ -155,6 +160,10 @@ public partial class QlyDuAnContext : DbContext
             entity.HasOne(d => d.IdnhomLamViecNavigation).WithMany(p => p.NhanViens)
                 .HasForeignKey(d => d.IdnhomLamViec)
                 .HasConstraintName("FK__NhanVien__IDNhom__4AB81AF0");
+
+            entity.HasOne(d => d.IdtaiKhoanNavigation).WithMany(p => p.NhanViens)
+                .HasForeignKey(d => d.IdtaiKhoan)
+                .HasConstraintName("FK__NhanVien__IDTaiK__6EF57B66");
         });
 
         modelBuilder.Entity<NhomLamViec>(entity =>
