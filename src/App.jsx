@@ -7,12 +7,13 @@ import Process from "./pages/Process";
 import Employee from "./pages/Employee";
 import User from "./pages/User";
 import Login from "./pages/Login";
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
-import GroupProjectList from "./components/GroupProjectList";
-import ProjectList from "./components/ProjectList";
-import TaskProjectList from "./components/TaskProjectList";
-import ProgressProjectList from "./components/ProgressProjectList";
+import Navbar from "../src/components/Navbar";
+import GroupProjectList from "../src/components/GroupProjectList";
+import ProjectList from "../src/components/ProjectList";
+import TaskProjectList from "../src/components/TaskProjectList";
+import ProgressProjectList from "../src/components/ProgressProjectList";
+import Sidebar from "../src/components/Sidebar"
+
 
 function Layout() {
   const { user } = useSelector(state => state.auth);
@@ -44,7 +45,6 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/document' element={<Document />} />
           <Route path='/employee' element={<Employee />} />
-          {/* <Route path='/process' element={<Process />} /> */}
           <Route path='/process' element={<Process />}>
             <Route index element={<GroupProjectList />} />
             <Route path="groups" element={<GroupProjectList />} />

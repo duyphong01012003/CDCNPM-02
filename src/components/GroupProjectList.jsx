@@ -172,7 +172,7 @@ const ModalSeen = ({ isOpen, onClose, selectedGroup }) => {
                 className="bg-white !px-[20px] !py-[16px] rounded-lg w-[900px] shadow-xl"
             >
                 <div className='flex items-start justify-between'>
-                    <h2 className="text-[#1CA756] text-xl font-bold !mb-[18px]">Xem chi tiết thông nhóm dự án</h2>
+                    <h2 className="text-[#1CA756] text-xl font-bold !mb-[18px]">Xem chi tiết thông tin nhóm dự án</h2>
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}

@@ -4,16 +4,20 @@ import { IoIosAdd, IoMdTrash } from "react-icons/io";
 import { IoCloseSharp, IoEyeOutline, IoSad } from "react-icons/io5";
 import { HiOutlinePencil } from "react-icons/hi2";
 import { motion } from "framer-motion";
+import Date from "../components/Datepicker"
 
 const DocumentTable = ({ displayedItems, startIndex }) => {
     const [isModalSeenOpen, setIsModalSeenOpen] = useState(false);
     const [isModalEditOpen, setIsModalEditOpen] = useState(false);
     const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
     const [selectedGroup, setSelectedGroup] = useState(null);
+    const [disable, setDisable] = useState(false);
+
 
     const handleViewDetails = (group) => {
         setSelectedGroup(group);
         setIsModalSeenOpen(true);
+        setDisable(true);
     }
 
     const handeViewEdit = (group) => {
@@ -63,13 +67,14 @@ const DocumentTable = ({ displayedItems, startIndex }) => {
                     ))}
                 </tbody>
             </table>
-            {/* <ModalSeen isOpen={isModalSeenOpen} selectedGroup={selectedGroup} onClose={() => setIsModalSeenOpen(false)} />
-            <ModalEdit isOpen={isModalEditOpen} selectedGroup={selectedGroup} onClose={() => setIsModalEditOpen(false)} /> */}
+            <ModalSeen isOpen={isModalSeenOpen} disabled={disable} selectedGroup={selectedGroup} onClose={() => setIsModalSeenOpen(false)} />
+            <ModalEdit isOpen={isModalEditOpen} selectedGroup={selectedGroup} onClose={() => setIsModalEditOpen(false)} />
             <ModalDeltele isOpen={isModalDeleteOpen} onClose={() => setIsModalDeleteOpen(false)} />
         </>
     )
 }
 
+// Add Model
 const ModalAdd = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
     return (
@@ -101,19 +106,11 @@ const ModalAdd = ({ isOpen, onClose }) => {
                     </div>
                     <div>
                         <label className="block font-medium text-[#4B5563]">Ngày bắt đầu<span className='text-red-600'>*</span></label>
-                        <input
-                            type="text"
-                            className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder="Ngày bắt đầu"
-                        />
+                        <Date />
                     </div>
                     <div>
                         <label className="block font-medium text-[#4B5563]">Ngày kết thúc<span className='text-red-600'>*</span></label>
-                        <input
-                            type="text"
-                            className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder="Ngày kết thúc"
-                        />
+                        <Date />
                     </div>
                     <div>
                         <label className="block font-medium text-[#4B5563]">ID nhóm thực hiện<span className='text-red-600'>*</span></label>
@@ -163,7 +160,7 @@ const ModalAdd = ({ isOpen, onClose }) => {
 };
 
 // Seen Model
-const ModalSeen = ({ isOpen, onClose, selectedGroup }) => {
+const ModalSeen = ({ isOpen, onClose, selectedGroup, disabled }) => {
     if (!isOpen) return null;
     return (
         <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-[#00000040] backdrop-blur-xs">
@@ -175,7 +172,7 @@ const ModalSeen = ({ isOpen, onClose, selectedGroup }) => {
                 className="bg-white !px-[20px] !py-[16px] rounded-lg w-[900px] shadow-xl"
             >
                 <div className='flex items-start justify-between'>
-                    <h2 className="text-[#1CA756] text-xl font-bold !mb-[18px]">Xem chi tiết thông nhóm dự án</h2>
+                    <h2 className="text-[#1CA756] text-xl font-bold !mb-[18px]">Xem chi tiết thông tin dự án</h2>
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -187,7 +184,7 @@ const ModalSeen = ({ isOpen, onClose, selectedGroup }) => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                     <div>
-                        <label className="block font-medium text-[#4B5563]">ID nhóm <span className='text-red-600'>*</span></label>
+                        <label className="block font-medium text-[#4B5563]">ID dự án <span className='text-red-600'>*</span></label>
                         <input
                             type="text"
                             readOnly
@@ -196,7 +193,7 @@ const ModalSeen = ({ isOpen, onClose, selectedGroup }) => {
                         />
                     </div>
                     <div>
-                        <label className="block font-medium text-[#4B5563]">Tên nhóm <span className='text-red-600'>*</span></label>
+                        <label className="block font-medium text-[#4B5563]">Tên dự án <span className='text-red-600'>*</span></label>
                         <input
                             type="text"
                             readOnly
@@ -205,25 +202,19 @@ const ModalSeen = ({ isOpen, onClose, selectedGroup }) => {
                         />
                     </div>
                     <div>
-                        <label className="block font-medium text-[#4B5563]">Số thành viên <span className='text-red-600'>*</span></label>
-                        <input
-                            type="text"
-                            readOnly
-                            className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder={selectedGroup.member}
-                        />
+                        <label className="block font-medium text-[#4B5563]">Ngày bắt đầu <span className='text-red-600'>*</span></label>
+                        <div>
+                            <Date disable={disabled} />
+                        </div>
                     </div>
                     <div>
-                        <label className="block font-medium text-[#4B5563]">Tên người quản lý <span className='text-red-600'>*</span></label>
-                        <input
-                            type="text"
-                            readOnly
-                            className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder={selectedGroup.lead}
-                        />
+                        <label className="block font-medium text-[#4B5563]">Ngày kết thúc <span className='text-red-600'>*</span></label>
+                        <div>
+                            <Date disable={disabled} />
+                        </div>
                     </div>
                     <div>
-                        <label className="block font-medium text-[#4B5563]">ID dự án được giao <span className='text-red-600'>*</span></label>
+                        <label className="block font-medium text-[#4B5563]">ID nhóm thực hiện <span className='text-red-600'>*</span></label>
                         <input
                             type="text"
                             readOnly
@@ -232,17 +223,18 @@ const ModalSeen = ({ isOpen, onClose, selectedGroup }) => {
                         />
                     </div>
                     <div>
-                        <label className="block font-medium text-[#4B5563]">Tên dự án <span className='text-red-600'>*</span></label>
+                        <label className="block font-medium text-[#4B5563]">ID người quản lý <span className='text-red-600'>*</span></label>
                         <input
                             type="text"
                             readOnly
                             className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder="Tên dự án"
+                            placeholder={selectedGroup.lead}
                         />
                     </div>
                     <div className='col-span-2'>
                         <label className="block font-medium text-[#4B5563]">Mô tả nhóm <span className='text-red-600'>*</span></label>
                         <textarea
+                            readOnly
                             className="w-full h-[250px] p-2 border !py-[8px] !px-[10px] border-gray-300 rounded-md focus:border-green-500 focus:ring focus:ring-green-200 transition-all resize-none"
                             placeholder="Mô tả nhóm..."
                         />
@@ -268,43 +260,12 @@ const ModalEdit = ({ isOpen, onClose, selectedGroup }) => {
                 <h2 className="text-[#1CA756] text-xl font-bold !mb-[18px]">Chỉnh sửa thông tin nhóm dự án</h2>
                 <div className="grid grid-cols-2 gap-4">
                     <div>
-                        <label className="block font-medium text-[#4B5563]">ID nhóm <span className='text-red-600'>*</span></label>
+                        <label className="block font-medium text-[#4B5563]">ID dự án <span className='text-red-600'>*</span></label>
                         <input
                             type="text"
+                            readOnly
                             className="w-full border rounded !py-[8px] !px-[10px]"
                             placeholder={selectedGroup.id}
-                        />
-                    </div>
-                    <div>
-                        <label className="block font-medium text-[#4B5563]">Tên nhóm <span className='text-red-600'>*</span></label>
-                        <input
-                            type="text"
-                            className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder={selectedGroup.name}
-                        />
-                    </div>
-                    <div>
-                        <label className="block font-medium text-[#4B5563]">Số thành viên <span className='text-red-600'>*</span></label>
-                        <input
-                            type="text"
-                            className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder={selectedGroup.member}
-                        />
-                    </div>
-                    <div>
-                        <label className="block font-medium text-[#4B5563]">Tên người quản lý <span className='text-red-600'>*</span></label>
-                        <input
-                            type="text"
-                            className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder={selectedGroup.lead}
-                        />
-                    </div>
-                    <div>
-                        <label className="block font-medium text-[#4B5563]">ID dự án được giao <span className='text-red-600'>*</span></label>
-                        <input
-                            type="text"
-                            className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder="ID dự án được giao"
                         />
                     </div>
                     <div>
@@ -312,7 +273,37 @@ const ModalEdit = ({ isOpen, onClose, selectedGroup }) => {
                         <input
                             type="text"
                             className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder="Tên dự án"
+                            placeholder={selectedGroup.name}
+                        />
+                    </div>
+                    <div>
+                        <label className="block font-medium text-[#4B5563]">Ngày bắt đầu <span className='text-red-600'>*</span></label>
+                        <div>
+                            <Date />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="block font-medium text-[#4B5563]">Ngày kết thúc <span className='text-red-600'>*</span></label>
+                        <div>
+                            <Date />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="block font-medium text-[#4B5563]">ID nhóm thực hiện <span className='text-red-600'>*</span></label>
+                        <input
+                            type="text"
+                            readOnly
+                            className="w-full border !py-[8px] !px-[10px] rounded"
+                            placeholder="ID dự án được giao"
+                        />
+                    </div>
+                    <div>
+                        <label className="block font-medium text-[#4B5563]">ID người quản lý <span className='text-red-600'>*</span></label>
+                        <input
+                            type="text"
+                            readOnly
+                            className="w-full border !py-[8px] !px-[10px] rounded"
+                            placeholder={selectedGroup.lead}
                         />
                     </div>
                     <div className='col-span-2'>

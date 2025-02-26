@@ -1,10 +1,4 @@
 import React from 'react'
-import { MdOutlineSearch } from "react-icons/md";
-import { IoIosAdd, IoMdTrash } from "react-icons/io";
-import { IoCloseSharp, IoEyeOutline, IoSad } from "react-icons/io5";
-import { HiOutlinePencil } from "react-icons/hi2";
-import { motion } from "framer-motion";
-import Date from "../components/Datepicker"
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 

@@ -3,13 +3,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { IoCalendarOutline } from "react-icons/io5";
 
-const MyDatePicker = () => {
+const MyDatePicker = ({ disable }) => {
     const [selectedDate, setSelectedDate] = useState(null);
 
-    const CustomInput = React.forwardRef(({ value, onClick }, ref) => (
+    const CustomInput = React.forwardRef(({ value, onClick, disable }, ref) => (
         <div
             className="w-full !px-[10px] flex items-center border rounded cursor-pointer"
-            onClick={onClick}
+            onClick={!disable ? onClick : undefined}
             ref={ref}
         >
             <input
@@ -28,7 +28,7 @@ const MyDatePicker = () => {
             selected={selectedDate}
             onChange={(date) => setSelectedDate(date)}
             dateFormat="dd/MM/yyyy"
-            customInput={<CustomInput />}
+            customInput={<CustomInput disable={disable} />}
         />
     );
 };
