@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QlyDuAn.Services; // 💡 Kiểm tra và thêm dòng này nếu thiếu
+using QlyDuAn.Request;
 
 namespace QlyDuAn.Controllers
 {
@@ -16,7 +17,7 @@ namespace QlyDuAn.Controllers
 		}
 
 		[HttpPost("login")]
-		public async Task<IActionResult> Login([FromBody] LoginRequest request)
+		public async Task<ActionResult<LoginRequest>> Login([FromBody] LoginRequest request)
 		{
 			var user = await _authService.LoginAsync(request.Code, request.Password);
 
@@ -29,9 +30,5 @@ namespace QlyDuAn.Controllers
 		}
 	}
 
-	public class LoginRequest
-	{
-		public string Code { get; set; }
-		public string Password { get; set; }
-	}
+
 }

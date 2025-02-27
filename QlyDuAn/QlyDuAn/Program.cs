@@ -12,6 +12,7 @@ builder.Services.AddDbContext<QlyDuAnContext>(options =>
 
 // Add services to the container.
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<RegisterService>();
 
 //builder.WebHost.UseUrls("http://0.0.0.0:5113");
 

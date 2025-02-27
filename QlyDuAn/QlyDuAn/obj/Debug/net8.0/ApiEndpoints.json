@@ -118,11 +118,21 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "QlyDuAn.Controllers.LoginRequest",
+        "Type": "QlyDuAn.Request.LoginRequest",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "QlyDuAn.Request.LoginRequest",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "QlyDuAn.Controllers.DuAnsController",
@@ -450,6 +460,32 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QlyDuAn.Controllers.RegisterController",
+    "Method": "Register",
+    "RelativePath": "api/Register/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "QlyDuAn.Request.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "QlyDuAn.Controllers.TaiKhoansController",
