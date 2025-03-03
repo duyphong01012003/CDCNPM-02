@@ -8,6 +8,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<QlyDuAnContext>(options =>
 	options.UseSqlServer(connectionString));
+builder.Services.AddScoped<DatabaseService>(provider =>
+    new DatabaseService(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 // Add services to the container.
@@ -34,3 +36,12 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
