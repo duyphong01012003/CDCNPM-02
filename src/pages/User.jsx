@@ -86,13 +86,31 @@ const ModalAdd = ({ isOpen, onClose }) => {
             >
                 <h2 className="text-[#1CA756] text-xl font-bold !mb-[18px]">Thêm mới tài khoản</h2>
                 <div className="grid grid-cols-2 gap-4">
-                    <div className='col-span-2'>
-                        <label className="block font-medium text-[#4B5563]">Quản lý</label>
-                        <input
-                            type="radio"
-                            className="w-full border rounded !py-[8px] !px-[10px]"
-                            placeholder="Nhập ID dự án"
-                        />
+                    <div className='col-span-2 flex items-center gap-x-[10px]'>
+                        <>
+                            <label class="relative flex items-center cursor-pointer" for="quanly">
+                                <input name="framework" type="radio" class="peer h-4 w-4 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all" id="quanly" />
+                                <span class="absolute bg-[#1CA756] w-[10px] h-[10px] rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                </span>
+                            </label>
+                            <label class="ml-2 text-slate-600 cursor-pointer" for="quanly">Quản lý</label>
+                        </>
+                        <>
+                            <label class="relative flex items-center cursor-pointer" for="admin">
+                                <input name="framework" type="radio" class="peer h-4 w-4 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all" id="admin" />
+                                <span class="absolute bg-[#1CA756] w-[10px] h-[10px] rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                </span>
+                            </label>
+                            <label class="ml-2 text-slate-600 cursor-pointer" for="admin">Admin</label>
+                        </>
+                        <>
+                            <label class="relative flex items-center cursor-pointer" for="nhanvien">
+                                <input name="framework" type="radio" class="peer h-4 w-4 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all" id="nhanvien" />
+                                <span class="absolute bg-[#1CA756] w-[10px] h-[10px] rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                </span>
+                            </label>
+                            <label class="ml-2 text-slate-600 cursor-pointer" for="nhanvien">Nhân viên</label>
+                        </>
                     </div>
                     <div>
                         <label className="block font-medium text-[#4B5563]">ID tài khoản<span className='text-red-600'>*</span></label>

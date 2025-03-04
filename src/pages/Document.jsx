@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import { MdOutlineSearch } from "react-icons/md";
 import { IoIosAdd, IoMdTrash } from "react-icons/io";
 import { IoCloseSharp, IoEyeOutline, IoSad } from "react-icons/io5";
 import { HiOutlinePencil } from "react-icons/hi2";
 import { motion } from "framer-motion";
-import Date from "../components/Datepicker"
+import Date from "../components/Datepicker";
+import axios from "axios";
 
 const DocumentTable = ({ displayedItems, startIndex }) => {
     const [isModalSeenOpen, setIsModalSeenOpen] = useState(false);
@@ -355,6 +356,19 @@ const Document = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const itemPerPage = 5;
+    const [document, setDocument] = useState(null);
+
+    useEffect(() => {
+        axios.get("https://b08e-1-53-37-0.ngrok-free.app/api/TaiLieux", {
+            headers: {
+                "ngrok-skip-browser-warning": "true",
+                "Content-Type": "application/json",
+            }
+        })
+            .then(response => setDocument(response.data))
+            .catch(error => console.error("Loi khi goi API:", error));
+    }, []);
+    console.log(document);
 
     const totalPages = Math.ceil(data.length / itemPerPage);
     const startIndex = (currentPage - 1) * itemPerPage;
