@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "mcj8B5u/Cbaykvu7+ulRWPVtjS/X+JxHuQZHTEYrtnU=",
+  "Hash": "wT0UmBXHCBKcdmTl/INaHqQ9jHATgaOYc3D316Dcg/U=",
   "Source": "QlyDuAn",
   "BasePath": "_content/QlyDuAn",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

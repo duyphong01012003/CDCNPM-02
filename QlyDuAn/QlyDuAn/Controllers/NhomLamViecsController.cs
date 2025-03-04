@@ -24,26 +24,45 @@ namespace QlyDuAn.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<NhomLamViec>>> GetNhomLamViecs()
         {
-            return await _context.NhomLamViecs.ToListAsync();
-        }
+            var Team = await _context.NhomLamViecs
+                .Include(nlv => nlv.IdnguoiQuanLyNavigation)
+				.Select(nlv => new
+				{
+					nlv.CodeNhom,
+					nlv.TenNhom,
+					nlv.SoThanhVien,
+                    nlv.IdnguoiQuanLyNavigation.HoTenTruongNhom,
+				}
+			).ToListAsync();
 
-        // GET: api/NhomLamViecs/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<NhomLamViec>> GetNhomLamViec(int id)
-        {
-            var nhomLamViec = await _context.NhomLamViecs.FindAsync(id);
+			return Ok(Team);
+			//return await _context.NhomLamViecs.ToListAsync();
+		}
 
-            if (nhomLamViec == null)
-            {
-                return NotFound();
-            }
+		//GET: api/NhomLamViecs/by-name/abc
+		[HttpGet("by-name/{name}")]
+		public async Task<ActionResult<IEnumerable<DuAn>>> GetNhomLamViecsByName(string name)
+		{
+			var nhomLamViec = await _context.NhomLamViecs
+                .Include(x => x.IdnguoiQuanLyNavigation)
+				.Where(x => x.TenNhom.Contains(name))
+                .Select(x => new
+                {
+					x.CodeNhom,
+					x.TenNhom,
+					x.SoThanhVien,
+					x.IdnguoiQuanLyNavigation.HoTenTruongNhom,
+				}).ToListAsync();
+			if (nhomLamViec == null)
+			{
+				return NotFound();
+			}
+			return Ok(nhomLamViec);
+		}
 
-            return nhomLamViec;
-        }
-
-        // PUT: api/NhomLamViecs/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		// PUT: api/NhomLamViecs/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutNhomLamViec(int id, NhomLamViec nhomLamViec)
         {
             if (id != nhomLamViec.IdnhomLamViec)

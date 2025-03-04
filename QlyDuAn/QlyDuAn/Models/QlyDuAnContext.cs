@@ -45,10 +45,6 @@ public partial class QlyDuAnContext : DbContext
             entity.ToTable("Admin");
 
             entity.Property(e => e.Idadmin).HasColumnName("IDAdmin");
-            entity.Property(e => e.CodeAdmin)
-                .HasMaxLength(7)
-                .IsUnicode(false)
-                .HasComputedColumnSql("('Ad'+right('0000'+CONVERT([varchar](5),[IDAdmin]),(5)))", true);
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -103,10 +99,6 @@ public partial class QlyDuAnContext : DbContext
             entity.ToTable("NhanVien");
 
             entity.Property(e => e.IdnhanVien).HasColumnName("IDNhanVien");
-            entity.Property(e => e.CodeNhanVien)
-                .HasMaxLength(7)
-                .IsUnicode(false)
-                .HasComputedColumnSql("('NV'+right('0000'+CONVERT([varchar](5),[IDNhanVien]),(5)))", true);
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -271,10 +263,6 @@ public partial class QlyDuAnContext : DbContext
             entity.ToTable("TruongNhom");
 
             entity.Property(e => e.IdtruongNhom).HasColumnName("IDTruongNhom");
-            entity.Property(e => e.CodeTruongNhom)
-                .HasMaxLength(7)
-                .IsUnicode(false)
-                .HasComputedColumnSql("('TN'+right('0000'+CONVERT([varchar](5),[IDTruongNhom]),(5)))", true);
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .IsUnicode(false);

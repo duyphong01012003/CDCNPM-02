@@ -7,8 +7,6 @@ public partial class Admin
 {
     public int Idadmin { get; set; }
 
-    public string? CodeAdmin { get; set; }
-
     public string? HoTenAdmin { get; set; }
 
     public string? GioiTinh { get; set; }

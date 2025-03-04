@@ -7,8 +7,6 @@ public partial class TruongNhom
 {
     public int IdtruongNhom { get; set; }
 
-    public string? CodeTruongNhom { get; set; }
-
     public string? HoTenTruongNhom { get; set; }
 
     public string? GioiTinh { get; set; }

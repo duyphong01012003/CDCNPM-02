@@ -26,7 +26,7 @@ namespace QlyDuAn.Controllers
 				return Unauthorized(new { message = "Sai tài khoản hoặc mật khẩu!" });
 			}
 
-			return Ok(new { message = "Đăng nhập thành công", username = user.IdtaiKhoan });
+			return Ok(new { message = "Đăng nhập thành công", username = user.IdtaiKhoan, role = user.QuyenTaiKhoan});
 		}
 	}
 

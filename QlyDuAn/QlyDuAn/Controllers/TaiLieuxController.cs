@@ -24,22 +24,43 @@ namespace QlyDuAn.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaiLieu>>> GetTaiLieus()
         {
-            return await _context.TaiLieus.ToListAsync();
-        }
+            var taiLieus = await _context.TaiLieus.
+                Include(t => t.IdduAnNavigation).
+                Select(t => new
+                    {
+                        t.CodeTaiLieu,
+					    t.TenTaiLieu,
+					    TenDuAn = t.IdduAnNavigation.TenDuAn,
+					    t.NgayTaiLen,
+				    }
+                ).   
+				ToListAsync();
 
-        // GET: api/TaiLieux/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TaiLieu>> GetTaiLieu(int id)
-        {
-            var taiLieu = await _context.TaiLieus.FindAsync(id);
+            return Ok(taiLieus);
+		}
 
-            if (taiLieu == null)
-            {
-                return NotFound();
-            }
-
-            return taiLieu;
-        }
+		// GET: api/TaiLieux/by-name/abc
+		[HttpGet("by-name/{name}")]
+		public async Task<ActionResult<IEnumerable<TaiLieu>>> GetTaiLieuByName(string name)
+		{
+			var taiLieuName = await _context.TaiLieus.
+                Include(t => t.IdduAnNavigation).
+				Where(x => x.TenTaiLieu.Contains(name)).
+                Select(t => new
+                    {
+					    t.CodeTaiLieu,
+					    t.TenTaiLieu,
+					    TenDuAn = t.IdduAnNavigation.TenDuAn,
+					    t.NgayTaiLen,
+				    }
+                ).
+				ToListAsync();
+			if (taiLieuName == null)
+			{
+				return NotFound();
+			}
+			return Ok(taiLieuName);
+		}
 
         // PUT: api/TaiLieux/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

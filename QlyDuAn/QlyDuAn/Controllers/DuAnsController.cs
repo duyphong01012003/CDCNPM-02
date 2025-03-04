@@ -24,26 +24,49 @@ namespace QlyDuAn.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DuAn>>> GetDuAns()
         {
-            return await _context.DuAns.ToListAsync();
-        }
+            var DuAn = await _context.DuAns
+                .Include(da => da.IdnguoiQuanLyNavigation)
+				.Select(da => new
+				{
+					da.CodeDuAn,
+					da.TenDuAn,
+					da.NgayBatDau,
+					da.NgayKetThuc,
+					da.IdnguoiQuanLyNavigation.HoTenTruongNhom,
+				}
+			).ToListAsync();
+			return Ok(DuAn);
 
-        // GET: api/DuAns/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<DuAn>> GetDuAn(int id)
-        {
-            var duAn = await _context.DuAns.FindAsync(id);
+			//return await _context.DuAns.ToListAsync();
+		}
 
-            if (duAn == null)
-            {
-                return NotFound();
-            }
+		//GET: api/DuAns/by-name/abc
+        [HttpGet("by-name/{name}")]
+		public async Task<ActionResult<IEnumerable<DuAn>>> GetDuAnByName(string name)
+		{
+			var duAnName = await _context.DuAns
+                .Include(x => x.IdnguoiQuanLyNavigation)
+				.Where(x => x.TenDuAn.Contains(name))
+                .Select(x => new
+				{
+					x.CodeDuAn,
+					x.TenDuAn,
+					x.NgayBatDau,
+					x.NgayKetThuc,
+					x.IdnguoiQuanLyNavigation.HoTenTruongNhom,
+				})
+				.ToListAsync();
+			if (duAnName == null)
+			{
+				return NotFound();
+			}
+			return Ok(duAnName);
+		}
 
-            return duAn;
-        }
 
-        // PUT: api/DuAns/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		// PUT: api/DuAns/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutDuAn(int id, DuAn duAn)
         {
             if (id != duAn.IdduAn)

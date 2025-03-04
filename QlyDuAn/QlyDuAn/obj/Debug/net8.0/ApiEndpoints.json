@@ -182,32 +182,6 @@
   },
   {
     "ContainingType": "QlyDuAn.Controllers.DuAnsController",
-    "Method": "GetDuAn",
-    "RelativePath": "api/DuAns/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "QlyDuAn.Models.DuAn",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "QlyDuAn.Controllers.DuAnsController",
     "Method": "PutDuAn",
     "RelativePath": "api/DuAns/{id}",
     "HttpMethod": "PUT",
@@ -244,6 +218,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "QlyDuAn.Controllers.DuAnsController",
+    "Method": "GetDuAnByName",
+    "RelativePath": "api/DuAns/by-name/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QlyDuAn.Models.DuAn, QlyDuAn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "QlyDuAn.Controllers.NhanViensController",
     "Method": "GetNhanViens",
     "RelativePath": "api/NhanViens",
@@ -274,32 +274,6 @@
       {
         "Name": "nhanVien",
         "Type": "QlyDuAn.Models.NhanVien",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "QlyDuAn.Models.NhanVien",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "QlyDuAn.Controllers.NhanViensController",
-    "Method": "GetNhanVien",
-    "RelativePath": "api/NhanViens/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -353,6 +327,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "QlyDuAn.Controllers.NhanViensController",
+    "Method": "GetNhanViensByName",
+    "RelativePath": "api/NhanViens/by-name/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QlyDuAn.Models.DuAn, QlyDuAn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "QlyDuAn.Controllers.NhomLamViecsController",
     "Method": "GetNhomLamViecs",
     "RelativePath": "api/NhomLamViecs",
@@ -383,32 +383,6 @@
       {
         "Name": "nhomLamViec",
         "Type": "QlyDuAn.Models.NhomLamViec",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "QlyDuAn.Models.NhomLamViec",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "QlyDuAn.Controllers.NhomLamViecsController",
-    "Method": "GetNhomLamViec",
-    "RelativePath": "api/NhomLamViecs/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -460,6 +434,32 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QlyDuAn.Controllers.NhomLamViecsController",
+    "Method": "GetNhomLamViecsByName",
+    "RelativePath": "api/NhomLamViecs/by-name/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QlyDuAn.Models.DuAn, QlyDuAn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "QlyDuAn.Controllers.RegisterController",
@@ -535,32 +535,6 @@
   },
   {
     "ContainingType": "QlyDuAn.Controllers.TaiKhoansController",
-    "Method": "GetTaiKhoan",
-    "RelativePath": "api/TaiKhoans/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "QlyDuAn.Models.TaiKhoan",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "QlyDuAn.Controllers.TaiKhoansController",
     "Method": "PutTaiKhoan",
     "RelativePath": "api/TaiKhoans/{id}",
     "HttpMethod": "PUT",
@@ -597,6 +571,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "QlyDuAn.Controllers.TaiKhoansController",
+    "Method": "GetTaiKhoansByName",
+    "RelativePath": "api/TaiKhoans/by-name/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QlyDuAn.Models.DuAn, QlyDuAn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "QlyDuAn.Controllers.TaiLieuxController",
     "Method": "GetTaiLieus",
     "RelativePath": "api/TaiLieux",
@@ -627,32 +627,6 @@
       {
         "Name": "taiLieu",
         "Type": "QlyDuAn.Models.TaiLieu",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "QlyDuAn.Models.TaiLieu",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "QlyDuAn.Controllers.TaiLieuxController",
-    "Method": "GetTaiLieu",
-    "RelativePath": "api/TaiLieux/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -704,6 +678,32 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QlyDuAn.Controllers.TaiLieuxController",
+    "Method": "GetTaiLieuByName",
+    "RelativePath": "api/TaiLieux/by-name/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QlyDuAn.Models.TaiLieu, QlyDuAn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "QlyDuAn.Controllers.TaskConsController",

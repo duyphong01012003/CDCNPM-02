@@ -11,7 +11,7 @@ public partial class TaiKhoan
 
     public string? QuyenTaiKhoan { get; set; }
 
-    public string? MatKhau { get; set; } = null!;
+    public string MatKhau { get; set; } = null!;
 
     public virtual ICollection<Admin> Admins { get; set; } = new List<Admin>();
 

@@ -24,26 +24,58 @@ namespace QlyDuAn.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaiKhoan>>> GetTaiKhoans()
         {
-            return await _context.TaiKhoans.ToListAsync();
-        }
+            var taiKhoan = await _context.TaiKhoans.
+				Select(tk => new
+				{
+					tk.CodeTaiKhoan,
+                    ThongTin = tk.QuyenTaiKhoan == "NhanVien"
+                        ? (object)_context.NhanViens
+						    .Where(nv => nv.IdtaiKhoan == tk.IdtaiKhoan)
+                            .Select(nv => new
+						    {
+					            nv.HoTenNhanVien,
+				    	        nv.Sdt
+						    }
+                            ).FirstOrDefault()
+						: tk.QuyenTaiKhoan == "TruongNhom"
+						? (object)_context.TruongNhoms
+                            .Where(tn => tn.IdtaiKhoan == tk.IdtaiKhoan)
+							.Select(tn => new
+							{
+                                tn.HoTenTruongNhom,
+								tn.Sdt
+							}
+							).FirstOrDefault()
+						: (object)_context.Admins
+							.Where(ad => ad.IdtaiKhoan == tk.IdtaiKhoan)
+                            .Select(ad => new
+							{
+								ad.HoTenAdmin,
+                                ad.Sdt
+							}
+                            ).FirstOrDefault(),
+                    tk.QuyenTaiKhoan
+				}
+			).ToListAsync();
+			return Ok(taiKhoan);
+		}
 
-        // GET: api/TaiKhoans/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TaiKhoan>> GetTaiKhoan(int id)
-        {
-            var taiKhoan = await _context.TaiKhoans.FindAsync(id);
+		// GET: api/TaiKhoans/5
+		//GET: api/TaiKhoans/by-name/abc
+		[HttpGet("by-name/{name}")]
+		public async Task<ActionResult<IEnumerable<DuAn>>> GetTaiKhoansByName(string name)
+		{
+			var duAnName = await _context.DuAns.Where(x => x.TenDuAn == name).ToListAsync();
+			if (duAnName == null)
+			{
+				return NotFound();
+			}
+			return duAnName;
+		}
 
-            if (taiKhoan == null)
-            {
-                return NotFound();
-            }
-
-            return taiKhoan;
-        }
-
-        // PUT: api/TaiKhoans/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		// PUT: api/TaiKhoans/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutTaiKhoan(int id, TaiKhoan taiKhoan)
         {
 			if (id != taiKhoan.IdtaiKhoan)

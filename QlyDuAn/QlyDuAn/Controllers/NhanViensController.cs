@@ -24,26 +24,44 @@ namespace QlyDuAn.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<NhanVien>>> GetNhanViens()
         {
-            return await _context.NhanViens.ToListAsync();
-        }
+            var nhanVien = await _context.NhanViens.
+                Include(nv => nv.IdtaiKhoanNavigation).
+				Select(nv => new
+				{
+					id = nv.IdtaiKhoanNavigation.CodeTaiKhoan,
+					nv.HoTenNhanVien,
+					nv.Sdt,
+					nv.IdtaiKhoanNavigation.QuyenTaiKhoan
+				}
+			).ToListAsync();
+			return Ok(nhanVien);
+			//return await _context.NhanViens.ToListAsync();
+		}
 
-        // GET: api/NhanViens/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<NhanVien>> GetNhanVien(int id)
-        {
-            var nhanVien = await _context.NhanViens.FindAsync(id);
+		//GET: api/NhanViens/by-name/abc
+		[HttpGet("by-name/{name}")]
+		public async Task<ActionResult<IEnumerable<DuAn>>> GetNhanViensByName(string name)
+		{
+			var nhanVien = await _context.NhanViens
+                .Include(x => x.IdtaiKhoanNavigation)
+				.Where(x => x.HoTenNhanVien.Contains(name))
+                .Select(x => new
+                {
+					id = x.IdtaiKhoanNavigation.CodeTaiKhoan,
+					x.HoTenNhanVien,
+					x.Sdt,
+					x.IdtaiKhoanNavigation.QuyenTaiKhoan
+				}).ToListAsync();
+			if (nhanVien == null)
+			{
+				return NotFound();
+			}
+			return Ok(nhanVien);
+		}
 
-            if (nhanVien == null)
-            {
-                return NotFound();
-            }
-
-            return nhanVien;
-        }
-
-        // PUT: api/NhanViens/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		// PUT: api/NhanViens/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutNhanVien(int id, NhanVien nhanVien)
         {
             if (id != nhanVien.IdnhanVien)

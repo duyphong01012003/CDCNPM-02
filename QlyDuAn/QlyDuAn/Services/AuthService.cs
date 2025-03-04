@@ -30,8 +30,8 @@ namespace QlyDuAn.Services
 
 
 
-			var idTaiKhoan = await dbContext.NhanViens
-				.Where(nv => EF.Functions.Like(nv.CodeNhanVien.Trim(), code.Trim())) // Loại bỏ khoảng trắng
+			var idTaiKhoan = await dbContext.TaiKhoans
+				.Where(nv => EF.Functions.Like(nv.CodeTaiKhoan.Trim(), code.Trim())) // Loại bỏ khoảng trắng
 				.Select(nv => nv.IdtaiKhoan)
 				.FirstOrDefaultAsync();
 
