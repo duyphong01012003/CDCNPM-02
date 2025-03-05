@@ -24,13 +24,12 @@ builder.Services.AddCors(options =>
 {
 	options.AddPolicy("AllowNgrok", policy =>
 	{
-		policy.WithOrigins("http://localhost:5173", "https://b08e-1-53-37-0.ngrok-free.app") // Chấp nhận cả localhost và Ngrok
+		policy.WithOrigins("http://localhost:5173", "https://f5b3-118-70-128-190.ngrok-free.app") // Chấp nhận cả localhost và Ngrok
 			  .AllowAnyMethod()
 			  .AllowAnyHeader()
 			  .AllowCredentials(); // Nếu dùng cookie hoặc authentication
 	});
 });
-
 
 // Add services to the container.
 builder.Services.AddScoped<AuthService>();

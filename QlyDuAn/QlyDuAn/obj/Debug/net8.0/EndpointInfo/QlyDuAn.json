@@ -736,7 +736,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/DuAn"
+                    "$ref": "#/components/schemas/NhomLamViec"
                   }
                 }
               },
@@ -744,7 +744,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/DuAn"
+                    "$ref": "#/components/schemas/NhomLamViec"
                   }
                 }
               },
@@ -752,7 +752,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/DuAn"
+                    "$ref": "#/components/schemas/NhomLamViec"
                   }
                 }
               }

@@ -56,7 +56,7 @@ namespace QlyDuAn.Services
 		private bool VerifyPassword(string inputPassword, string storedHashedPassword)
 		{
 			// Nếu bạn dùng bcrypt thì sẽ là: return BCrypt.Net.BCrypt.Verify(inputPassword, storedHashedPassword);
-			return inputPassword == storedHashedPassword; // Thay thế bằng giải pháp băm mật khẩu phù hợp
+			return inputPassword == storedHashedPassword; // Thay thế bằng giải pháp băm mật khẩu phù hợp	
 		}
 	}
 }

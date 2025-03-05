@@ -41,7 +41,7 @@ namespace QlyDuAn.Controllers
 
 		//GET: api/NhomLamViecs/by-name/abc
 		[HttpGet("by-name/{name}")]
-		public async Task<ActionResult<IEnumerable<DuAn>>> GetNhomLamViecsByName(string name)
+		public async Task<ActionResult<IEnumerable<NhomLamViec>>> GetNhomLamViecsByName(string name)
 		{
 			var nhomLamViec = await _context.NhomLamViecs
                 .Include(x => x.IdnguoiQuanLyNavigation)
@@ -53,10 +53,10 @@ namespace QlyDuAn.Controllers
 					x.SoThanhVien,
 					x.IdnguoiQuanLyNavigation.HoTenTruongNhom,
 				}).ToListAsync();
-			if (nhomLamViec == null)
-			{
-				return NotFound();
-			}
+			//if (nhomLamViec == null)
+			//{
+			//	return NotFound();
+			//}
 			return Ok(nhomLamViec);
 		}
 
