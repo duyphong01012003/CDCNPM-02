@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdOutlineSearch } from "react-icons/md";
 import { IoIosAdd, IoMdTrash } from "react-icons/io";
 import { IoCloseSharp, IoEyeOutline, IoSad } from "react-icons/io5";
@@ -6,6 +6,7 @@ import { HiOutlinePencil } from "react-icons/hi2";
 import { motion } from "framer-motion";
 import Date from "../components/Datepicker";
 import axios from "axios";
+import API_BASE_URL from "../../api";
 
 const DocumentTable = ({ displayedItems, startIndex }) => {
     const [isModalSeenOpen, setIsModalSeenOpen] = useState(false);
@@ -16,10 +17,10 @@ const DocumentTable = ({ displayedItems, startIndex }) => {
 
         <tr className="text-center border-t border-[#1CA756] hover:bg-gray-100">
             <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{startIndex + num + 1}</td>
-            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.id}</td>
-            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.name}</td>
-            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.project}</td>
-            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.date}</td>
+            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.CodeTaiLieu}</td>
+            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.TenDuAn}</td>
+            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.TenTaiLieu}</td>
+            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.NgayTaiLen}</td>
             <td className="!py-[10px] flex justify-center items-center gap-x-[20px]">
                 <button onClick={() => setIsModalSeenOpen(true)} className="text-green-500 hover:text-green-700 text-[20px] cursor-pointer">
                     <IoEyeOutline />
@@ -356,10 +357,16 @@ const Document = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const itemPerPage = 5;
-    const [document, setDocument] = useState(null);
+    const [document, setDocument] = useState([]);
+
+
+    const totalPages = Math.ceil(data.length / itemPerPage);
+    const startIndex = (currentPage - 1) * itemPerPage;
+    const displayedItems = document.slice(startIndex, startIndex + itemPerPage);
 
     useEffect(() => {
-        axios.get("https://b08e-1-53-37-0.ngrok-free.app/api/TaiLieux", {
+        console.log('test');
+        axios.get(`${API_BASE_URL}/TaiLieux`, {
             headers: {
                 "ngrok-skip-browser-warning": "true",
                 "Content-Type": "application/json",
@@ -368,12 +375,6 @@ const Document = () => {
             .then(response => setDocument(response.data))
             .catch(error => console.error("Loi khi goi API:", error));
     }, []);
-    console.log(document);
-
-    const totalPages = Math.ceil(data.length / itemPerPage);
-    const startIndex = (currentPage - 1) * itemPerPage;
-    const displayedItems = data.slice(startIndex, startIndex + itemPerPage);
-
 
     return (
         <div className='h-full bg-white !m-[20px] shadow-2xl rounded-2xl'>
