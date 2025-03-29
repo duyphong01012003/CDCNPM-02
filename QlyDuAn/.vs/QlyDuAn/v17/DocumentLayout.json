@@ -1,0 +1,491 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\code\\Backup\\QlyDuAn\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\controllers\\duanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\controllers\\duanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\models\\taskcon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\models\\taskcon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\models\\truongnhom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\models\\truongnhom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\request\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\request\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\request\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\request\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\services\\taskprogressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\services\\taskprogressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\services\\registerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\services\\registerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\controllers\\truongnhomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\controllers\\truongnhomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\controllers\\taskconscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\controllers\\taskconscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\controllers\\tailieuxcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\controllers\\tailieuxcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\controllers\\nhanvienscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\controllers\\nhanvienscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\controllers\\adminscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\controllers\\adminscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\models\\nhomlamviec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\models\\nhomlamviec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\models\\tailieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\models\\tailieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|c:\\code\\backup\\qlyduan\\qlyduan\\models\\qlyduancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{552CC2E5-A191-4FA7-979E-4B0343E1195D}|QlyDuAn\\QlyDuAn.csproj|solutionrelative:qlyduan\\models\\qlyduancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Models\\Admin.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\Admin.cs",
+              "RelativeToolTip": "QlyDuAn\\Models\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T08:31:28.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TaskProgressService.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Services\\TaskProgressService.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Services\\TaskProgressService.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Services\\TaskProgressService.cs",
+              "RelativeToolTip": "QlyDuAn\\Services\\TaskProgressService.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAgwGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T08:31:06.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TruongNhomsController.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\TruongNhomsController.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Controllers\\TruongNhomsController.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\TruongNhomsController.cs",
+              "RelativeToolTip": "QlyDuAn\\Controllers\\TruongNhomsController.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAQwE4AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:57:12.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TasksController.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\TasksController.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Controllers\\TasksController.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\TasksController.cs",
+              "RelativeToolTip": "QlyDuAn\\Controllers\\TasksController.cs",
+              "ViewState": "AgIAABQBAAAAAAAAAAAQwDYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:56:56.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TaskConsController.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\TaskConsController.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Controllers\\TaskConsController.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\TaskConsController.cs",
+              "RelativeToolTip": "QlyDuAn\\Controllers\\TaskConsController.cs",
+              "ViewState": "AgIAANcAAAAAAAAAAAAQwPkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:56:41.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TaiLieuxController.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\TaiLieuxController.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Controllers\\TaiLieuxController.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\TaiLieuxController.cs",
+              "RelativeToolTip": "QlyDuAn\\Controllers\\TaiLieuxController.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAiwK0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:56:25.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "NhanViensController.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\NhanViensController.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Controllers\\NhanViensController.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\NhanViensController.cs",
+              "RelativeToolTip": "QlyDuAn\\Controllers\\NhanViensController.cs",
+              "ViewState": "AgIAANIAAAAAAAAAAAAiwPYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:55:23.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DuAnsController.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\DuAnsController.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Controllers\\DuAnsController.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\DuAnsController.cs",
+              "RelativeToolTip": "QlyDuAn\\Controllers\\DuAnsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:55:02.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "QlyDuAn\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAkwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:54:42.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "QlyDuAn\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAswGgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:54:28.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AdminsController.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\AdminsController.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Controllers\\AdminsController.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Controllers\\AdminsController.cs",
+              "RelativeToolTip": "QlyDuAn\\Controllers\\AdminsController.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAswGsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:54:12.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "QlyDuAn\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Properties\\launchSettings.json",
+              "RelativeToolTip": "QlyDuAn\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-23T04:50:13.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RegisterService.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Services\\RegisterService.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Services\\RegisterService.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Services\\RegisterService.cs",
+              "RelativeToolTip": "QlyDuAn\\Services\\RegisterService.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAgwFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:49:15.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DashboardService.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Services\\DashboardService.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Services\\DashboardService.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Services\\DashboardService.cs",
+              "RelativeToolTip": "QlyDuAn\\Services\\DashboardService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:48:59.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Services\\AuthService.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Services\\AuthService.cs",
+              "RelativeToolTip": "QlyDuAn\\Services\\AuthService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwD0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:48:43.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Request\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Request\\RegisterRequest.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Request\\RegisterRequest.cs",
+              "RelativeToolTip": "QlyDuAn\\Request\\RegisterRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:47:54.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Request\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Request\\LoginRequest.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Request\\LoginRequest.cs",
+              "RelativeToolTip": "QlyDuAn\\Request\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T04:47:36.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "NhanVien.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\NhanVien.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Models\\NhanVien.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\NhanVien.cs",
+              "RelativeToolTip": "QlyDuAn\\Models\\NhanVien.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T03:54:24.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "NhomLamViec.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\NhomLamViec.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Models\\NhomLamViec.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\NhomLamViec.cs",
+              "RelativeToolTip": "QlyDuAn\\Models\\NhomLamViec.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T03:54:14.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "TaiKhoan.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\TaiKhoan.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Models\\TaiKhoan.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\TaiKhoan.cs",
+              "RelativeToolTip": "QlyDuAn\\Models\\TaiKhoan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T03:54:07.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "TaiLieu.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\TaiLieu.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Models\\TaiLieu.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\TaiLieu.cs",
+              "RelativeToolTip": "QlyDuAn\\Models\\TaiLieu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T03:54:01.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\Task.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Models\\Task.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\Task.cs",
+              "RelativeToolTip": "QlyDuAn\\Models\\Task.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T03:53:47.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaskCon.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\TaskCon.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Models\\TaskCon.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\TaskCon.cs",
+              "RelativeToolTip": "QlyDuAn\\Models\\TaskCon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T03:51:48.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TruongNhom.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\TruongNhom.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Models\\TruongNhom.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\TruongNhom.cs",
+              "RelativeToolTip": "QlyDuAn\\Models\\TruongNhom.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T03:50:52.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Program.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Program.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Program.cs",
+              "RelativeToolTip": "QlyDuAn\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T03:55:35.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "QlyDuAnContext.cs",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\QlyDuAnContext.cs",
+              "RelativeDocumentMoniker": "QlyDuAn\\Models\\QlyDuAnContext.cs",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\Models\\QlyDuAnContext.cs",
+              "RelativeToolTip": "QlyDuAn\\Models\\QlyDuAnContext.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAwEUAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T03:52:51.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\appsettings.json",
+              "RelativeDocumentMoniker": "QlyDuAn\\appsettings.json",
+              "ToolTip": "C:\\code\\Backup\\QlyDuAn\\QlyDuAn\\appsettings.json",
+              "RelativeToolTip": "QlyDuAn\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-20T03:38:37.93Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
