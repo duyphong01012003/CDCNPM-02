@@ -13,6 +13,7 @@ import ProjectList from "../src/components/ProjectList";
 import TaskProjectList from "../src/components/TaskProjectList";
 import ProgressProjectList from "../src/components/ProgressProjectList";
 import Sidebar from "../src/components/Sidebar"
+import DarkModeToggle from "./components/Dark";
 
 
 function Layout() {
@@ -20,12 +21,12 @@ function Layout() {
   const location = useLocation();
 
   return user ? (
-    <div className="w-full h-screen flex flex-col md:flex-row">
-      <div className="w-1/5 h-screen bg-white sticky top-0 hidden md:block">
+    <div className="w-full h-screen flex flex-col md:flex-row dark:bg-gray-800">
+      <div className="w-1/5 h-screen bg-white sticky top-0 hidden md:block dark:bg-gray-900 dark:text-white">
         <Sidebar />
       </div>
       {/*<MoblieSidebar/>*/}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto scrollbar-hidden">
         <Navbar />
         <div className="p-4 2xl:px-10">
           <Outlet />
@@ -36,6 +37,7 @@ function Layout() {
     <Navigate to='/login' state={{ from: location }} replace />
   );
 }
+// 
 function App() {
   return (
     <main className='w-full min-h-screen bg-[#f3f4f6]'>

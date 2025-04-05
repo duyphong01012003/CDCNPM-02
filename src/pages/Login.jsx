@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import TextBox from "../components/TextBox";
 import Button from "../components/Button";
+import { useLoginMutation } from '../redux/slices/authApiSlice';
+import { toast } from 'sonner';
+import { setCredentials } from '../redux/slices/authSlice';
+import Loading from '../components/Loading';
 
 
 const Login = () => {
     const { user } = useSelector(state => state.auth);
+    const dispatch = useDispatch();
     const {
         register,
         handleSubmit,
@@ -15,14 +20,33 @@ const Login = () => {
     } = useForm();
 
     const navigate = useNavigate();
+    const [login, { isLoading }] = useLoginMutation();
 
-    const submitHandler = async (data) => {
-        console.log("submit");
+    const submitHandler = async (formData) => {
+        console.log(formData);
+        try {
+            const result = await login({
+                Code: formData.username,
+                Password: formData.password
+            }).unwrap();
+            console.log(result);
+
+            dispatch(setCredentials(result));
+            navigate("/");
+        } catch (error) {
+            console.log(error);
+            toast.error(error?.data?.message || error.message)
+        }
     }
 
     useEffect(() => {
         user && navigate("/home");
     }, [user]);
+
+    if (isLoading) {
+        return <Loading />;
+    }
+
     return (
         <div className='w-full min-h-screen flex items-center justify-center flex-col lg:flex-row bg-[#f3f4f6]'>
             <div className='w-full md:w-auto flex gap-0 md:gap-40 flex-col md:flex-row items-center justify-center'>
@@ -50,15 +74,15 @@ const Login = () => {
                         </div>
                         <div className='flex flex-col gap-[20px]'>
                             <TextBox
-                                placeholder='email@example.com'
-                                type='email'
-                                name='email'
-                                label='Email Address'
+                                placeholder='your username'
+                                type='text'
+                                name='username'
+                                label='Username'
                                 className='w-full rounded-full'
-                                register={register("email", {
-                                    required: "Email Address is required!",
+                                register={register("username", {
+                                    required: "Tên đăng nhập không được để trống!",
                                 })}
-                                error={errors.email ? errors.email.message : ""}
+                                error={errors.username ? errors.username.message : ""}
                             />
                             <TextBox
                                 placeholder='your password'
@@ -71,9 +95,6 @@ const Login = () => {
                                 })}
                                 error={errors.password ? errors.password.message : ""}
                             />
-                            <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
-                                Forget Password?
-                            </span>
                             <Button
                                 type='submit'
                                 label='Submit'

@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { MdOutlineSearch } from 'react-icons/md';
 import { IoIosAdd, IoMdTrash } from "react-icons/io";
 import { IoCloseSharp, IoEyeOutline, IoSad } from "react-icons/io5";
 import { HiOutlinePencil, HiOutlinePaperAirplane } from "react-icons/hi2";
 import { motion } from "framer-motion";
 import Date from "../components/Datepicker"
+import axios from 'axios';
+import API_BASE_URL from "../../api";
+import { useSelector } from 'react-redux';
 
-const DocumentTable = ({ displayedItems, startIndex }) => {
+
+const DocumentTable = ({ displayedItems, startIndex, setEmployees, user }) => {
     const [isModalSeenOpen, setIsModalSeenOpen] = useState(false);
     const [isModalEditOpen, setIsModalEditOpen] = useState(false);
     const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
@@ -24,27 +28,36 @@ const DocumentTable = ({ displayedItems, startIndex }) => {
         setIsModalEditOpen(true);
     }
 
+    const handleDelete = (group) => {
+        setSelectedGroup(group);
+        setIsModalDeleteOpen(true)
+    }
+
     const TableRow = ({ item, num }) => (
 
-        <tr className="text-center border-t border-[#1CA756] hover:bg-gray-100">
-            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{startIndex + num + 1}</td>
-            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.id}</td>
-            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.name}</td>
-            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.member}</td>
-            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563]">{item.lead}</td>
+        <tr className="text-center border-t border-[#1CA756] hover:bg-gray-100 dark:hover:bg-[#9ac898]">
+            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563] dark:text-[#f0f4f2]">{startIndex + num + 1}</td>
+            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563] dark:text-[#f0f4f2]">{item.id}</td>
+            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563] dark:text-[#f0f4f2]">{item.HoTenNhanVien}</td>
+            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563] dark:text-[#f0f4f2]">{item.Sdt}</td>
+            <td className="!py-[10px] border-r border-[#1CA756] text-[#4B5563] dark:text-[#f0f4f2]">{item.QuyenTaiKhoan}</td>
             <td className="!py-[10px] flex justify-center items-center gap-x-[20px]">
                 <button onClick={() => handleViewDetails(item)} className="text-green-500 hover:text-green-700 text-[20px] cursor-pointer">
                     <IoEyeOutline />
                 </button>
-                <button onClick={() => handeViewEdit(item)} className="text-green-500 hover:text-green-700 text-[20px] cursor-pointer">
-                    <HiOutlinePencil />
-                </button>
-                <button onClick={() => setIsModalDeleteOpen(true)} className="text-red-500 hover:text-red-700 text-[20px] cursor-pointer">
-                    <IoMdTrash />
-                </button>
-                <button className="text-green-500 hover:text-green-700 text-[20px] cursor-pointer">
-                    <HiOutlinePaperAirplane />
-                </button>
+                {
+                    user.role !== "NhanVien" && (
+                        <>
+                            {/* <button onClick={() => handeViewEdit(item)} className="text-green-500 hover:text-green-700 text-[20px] cursor-pointer">
+                                <HiOutlinePencil />
+                            </button> */}
+                            <button onClick={() => handleDelete(item)} className="text-red-500 hover:text-red-700 text-[20px] cursor-pointer">
+                                <IoMdTrash />
+                            </button>
+                        </>
+
+                    )
+                }
             </td>
         </tr>
     )
@@ -69,13 +82,13 @@ const DocumentTable = ({ displayedItems, startIndex }) => {
             </table>
             <ModalSeen isOpen={isModalSeenOpen} disabled={disable} selectedGroup={selectedGroup} onClose={() => setIsModalSeenOpen(false)} />
             <ModalEdit isOpen={isModalEditOpen} selectedGroup={selectedGroup} onClose={() => setIsModalEditOpen(false)} />
-            <ModalDeltele isOpen={isModalDeleteOpen} onClose={() => setIsModalDeleteOpen(false)} />
+            <ModalDeltele isOpen={isModalDeleteOpen} setEmployees={setEmployees} selectedGroup={selectedGroup} onClose={() => setIsModalDeleteOpen(false)} />
         </>
     )
 }
 
 // Add Model 
-const ModalAdd = ({ isOpen, onClose }) => {
+const ModalAdd = ({ isOpen, onClose, employees }) => {
     if (!isOpen) return null;
     return (
         <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-[#00000040] backdrop-blur-xs">
@@ -116,9 +129,9 @@ const ModalAdd = ({ isOpen, onClose }) => {
                         <label className="block font-medium text-[#4B5563]">Tên người quản lý <span className='text-red-600'>*</span></label>
                         <select className="w-full border rounded !py-[10px] !px-[10px] text-[#4B5563]">
                             <option>Chọn người quản lý</option>
-                            {data.map((item, index) => (
-                                <option key={index} value={item.id}>
-                                    {item.lead}
+                            {employees.map((item, index) => (
+                                <option key={index} value={item.HoTenTruongNhom}>
+                                    {item.HoTenTruongNhom}
                                 </option>
                             ))}
                         </select>
@@ -126,7 +139,7 @@ const ModalAdd = ({ isOpen, onClose }) => {
                     <div>
                         <label className="block font-medium text-[#4B5563]">ID dự án được giao <span className='text-red-600'>*</span></label>
                         <select className="w-full border rounded !py-[10px] !px-[10px] text-[#4B5563]">
-                            <option>Tên dự án</option>
+                            <option>Id dự án</option>
                         </select>
                     </div>
                     <div>
@@ -204,35 +217,38 @@ const ModalSeen = ({ isOpen, onClose, selectedGroup, disabled }) => {
                             type="text"
                             readOnly
                             className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder={selectedGroup.name}
+                            placeholder={selectedGroup.HoTenNhanVien}
                         />
                     </div>
                     <div>
                         <label className="block font-medium text-[#4B5563]">Số điện thoại <span className='text-red-600'>*</span></label>
                         <input
                             type="text"
+                            readOnly
                             className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder={selectedGroup.member}
+                            placeholder={selectedGroup.Sdt}
                         />
                     </div>
                     <div>
                         <label className="block font-medium text-[#4B5563]">Ngày tháng năm sinh <span className='text-red-600'>*</span></label>
-                        <Date disable={disabled} />
+                        <Date datePlc={selectedGroup.NgaySinh} disable={disabled} />
                     </div>
                     <div>
                         <label className="block font-medium text-[#4B5563]">Giới tính <span className='text-red-600'>*</span></label>
                         <input
                             type="text"
+                            readOnly
                             className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder={selectedGroup.lead}
+                            placeholder={selectedGroup.GioiTinh}
                         />
                     </div>
                     <div>
                         <label className="block font-medium text-[#4B5563]">Email <span className='text-red-600'>*</span></label>
                         <input
                             type="text"
+                            readOnly
                             className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder={selectedGroup.lead}
+                            placeholder={selectedGroup.Email}
                         />
                     </div>
                     <div>
@@ -241,7 +257,7 @@ const ModalSeen = ({ isOpen, onClose, selectedGroup, disabled }) => {
                             type="text"
                             readOnly
                             className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder="ID dự án được giao"
+                            placeholder={selectedGroup.HoTenTruongNhom}
                         />
                     </div>
                     <div>
@@ -250,7 +266,7 @@ const ModalSeen = ({ isOpen, onClose, selectedGroup, disabled }) => {
                             type="text"
                             readOnly
                             className="w-full border !py-[8px] !px-[10px] rounded"
-                            placeholder="Tên dự án"
+                            placeholder={selectedGroup.TenNhom}
                         />
                     </div>
                 </div>
@@ -364,7 +380,30 @@ const ModalEdit = ({ isOpen, onClose, selectedGroup }) => {
 };
 
 // Delete Model
-const ModalDeltele = ({ isOpen, onClose }) => {
+const ModalDeltele = ({ isOpen, onClose, setEmployees, selectedGroup }) => {
+    const [deleteId, setDeleteId] = useState(null);
+    useEffect(() => {
+        if (deleteId !== null) {
+            axios.delete(`${API_BASE_URL}/NhanViens/${deleteId}`, {
+                headers: {
+                    "ngrok-skip-browser-warning": "true",
+                    "Content-Type": "application/json",
+                }
+            })
+                .then(() => {
+                    console.log(`Xóa tài liệu ${deleteId} thành công!`);
+                    setEmployees(prevDoc => prevDoc.filter(doc => doc.IdnhanVien !== deleteId))
+                    onClose();
+                })
+                .catch(error => console.error("Lỗi khi xóa tài liệu:", error))
+                .finally(() => setDeleteId(null));
+        }
+    }, [deleteId]);
+
+    const handleDelete = (id) => {
+        setDeleteId(id);
+    }
+
     if (!isOpen) return null;
     return (
         <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-[#00000040] backdrop-blur-xs">
@@ -389,6 +428,7 @@ const ModalDeltele = ({ isOpen, onClose }) => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="!py-[8px] !px-[50px] bg-green-600 text-white rounded hover:bg-green-700 cursor-pointer"
+                        onClick={() => handleDelete(selectedGroup.IdnhanVien)}
                     >
                         Đồng ý
                     </motion.button>
@@ -464,44 +504,83 @@ const data = [
 const Employee = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const itemPerPage = 5;
+    const [employee, setEmployee] = useState([]);
+    const [project, setProject] = useState([]);
+    const { user } = useSelector((state) => state.auth);
+    const [searchInput, setSearchInput] = useState("");
+    const itemPerPage = 10;
 
-    const totalPages = Math.ceil(data.length / itemPerPage);
     const startIndex = (currentPage - 1) * itemPerPage;
-    const displayedItems = data.slice(startIndex, startIndex + itemPerPage);
+    const displayedItems = employee.slice(startIndex, startIndex + itemPerPage);
+    const filteredEmployees = user.role === "NhanVien" ? displayedItems.filter(emp => emp.TenNhom === user.nhom) : displayedItems;
+
+    const totalPages = user.role === "NhanVien" ? Math.ceil(filteredEmployees.length / itemPerPage) : Math.ceil(employee.length / itemPerPage);
 
     // role
     // const filteredEmployees = user.role === "admin" || user.role === "quanly"
     //     ? displayedItems 
     //     : displayedItems.filter(emp => emp.project === user.project); 
 
+
+    // Render UI danh sach nhan vien
+    useEffect(() => {
+        axios.get(`${API_BASE_URL}/NhanViens`, {
+            headers: {
+                "ngrok-skip-browser-warning": "true",
+                "Content-Type": "application/json",
+            }
+        })
+            .then(response => setEmployee(response.data))
+            .catch(error => console.error("Loi khi goi API:", error));
+    }, []);
+
+    console.log(employee);
+
+    // Search
+    const handleSearch = async () => {
+        if (!searchInput.trim()) return;
+        try {
+            const response = await axios.get(`${API_BASE_URL}/NhanViens/by-name/${searchInput}`, {
+                headers: {
+                    "ngrok-skip-browser-warning": "true",
+                    "Content-Type": "application/json",
+                },
+            });
+            setEmployee(response.data);
+        } catch (error) {
+            console.error("Lỗi khi gọi API :", error);
+        }
+    }
+
     return (
-        <div className='h-full bg-white !m-[20px] shadow-2xl rounded-2xl'>
+        <div className='h-full bg-white !m-[20px] shadow-2xl rounded-2xl dark:bg-gray-900'>
             <div className='h-[800px] !p-[16px]'>
                 <div className='h-[36px] flex items-center justify-between gap-x-[27px]'>
                     <div className='w-64 flex flex-1 items-center !py-2 !px-3 gap-2 rounded-[8px] border-[1px] border-[#D3D3D3]'>
                         <MdOutlineSearch className='text-gray-500 text-xl' />
                         <input
                             type="text"
-                            placeholder='Tìm kiếm theo tên tài liệu'
+                            value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                            placeholder='Tìm kiếm theo tên nhân viên'
                             className='flex-1 outline-none bg-transparent placeholder:text-[#a6a6a6] text-[#343030]'
                         />
                     </div>
                     <button className='w-[105px] flex bg-[#1ca756] !p-[10px] rounded-[6px] cursor-pointer hover:bg-[#158f46] transition duration-300'>
                         <MdOutlineSearch className='text-[#e3f4e9] text-xl' />
-                        <span className='text-[#e3f4e9] text-[14px] font-medium'>Tìm kiếm</span>
+                        <span onClick={handleSearch} className='text-[#e3f4e9] text-[14px] font-medium'>Tìm kiếm</span>
                     </button>
                 </div>
                 <div className='!my-[20px] flex items-center justify-between gap-x-[27px]'>
                     <h1 className='font-semibold text-[20px] text-[#1CA756] uppercase'>Danh sách nhân viên</h1>
-                    <button onClick={() => setIsModalOpen(true)} className='w-[105px] flex bg-[#1ca756] !p-[10px] rounded-[6px] cursor-pointer hover:bg-[#158f46] transition duration-300'>
+                    {/* <button onClick={() => setIsModalOpen(true)} className='w-[105px] flex bg-[#1ca756] !p-[10px] rounded-[6px] cursor-pointer hover:bg-[#158f46] transition duration-300'>
                         <IoIosAdd className='text-[#e3f4e9] text-xl' />
                         <span className='text-[#e3f4e9] text-[14px] font-medium'>Thêm mới</span>
-                    </button>
+                    </button> */}
                 </div>
                 <div>
                     <div className='overflow-hidden rounded-[12px] border border-[#1CA756] !mb-[18px]'>
-                        <DocumentTable displayedItems={displayedItems} startIndex={startIndex} />
+                        <DocumentTable user={user} displayedItems={filteredEmployees} startIndex={startIndex} setEmployees={setEmployee} />
                     </div>
                     {/* Papagination */}
                     <div className="flex justify-end items-center gap-x-[10px]">
@@ -530,7 +609,7 @@ const Employee = () => {
                         </button>
                     </div>
                 </div>
-                <ModalAdd isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                <ModalAdd employees={employee} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             </div>
         </div>
     )

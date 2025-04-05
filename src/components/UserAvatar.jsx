@@ -15,8 +15,18 @@ const UserAvatar = () => {
     const navigate = useNavigate();
 
     const logoutHandler = () => {
+        localStorage.clear();
+        // window.location.reload();
+        window.location.replace("/login");
         console.log("logout");
     };
+    // const logoutHandler = () => {
+    //     localStorage.clear();
+    //     const navigate = useNavigate();
+    //     navigate('/login'); // Điều hướng bằng React Router
+    // };
+
+    console.log(user);
 
     return (
         <>
@@ -25,9 +35,9 @@ const UserAvatar = () => {
                     <div>
                         <MenuButton className='flex items-center gap-x-2 cursor-pointer'>
                             <div class="w-[30px] h-[30px] rounded-full overflow-hidden">
-                                <img src="https://via.placeholder.com/30" alt="Avatar" class="w-full h-full object-cover" />
+                                <img src="https://images.unsplash.com/photo-1742925602178-0f5939ee6845?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar" class="w-full h-full object-cover" />
                             </div>
-                            <span className='text-[#4A4A4A]'>{user?.name}</span>
+                            <span className='text-[#4A4A4A] dark:text-white'>{user?.ten}</span>
                             <IoIosArrowDown style={{ color: "rgba(70, 70, 70, 1)" }} />
                         </MenuButton>
                     </div>

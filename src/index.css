@@ -2,6 +2,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Nunito:wght@200&display=swap");
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +19,10 @@
   display: inline-block;
   width: 49%;
   text-align: center;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
 }
 
 .circle {

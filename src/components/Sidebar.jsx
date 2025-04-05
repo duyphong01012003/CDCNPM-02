@@ -25,17 +25,17 @@ const linkData = [
         icon: <IoMdDocument size={24} style={{ color: "rgba(28, 167, 86, 1)" }} />,
     },
     {
-        label: "Quản lí nhân sự",
+        label: "Quản lí nhân viên",
         link: "employee",
         icon: <IoMdPeople size={24} style={{ color: "rgba(28, 167, 86, 1)" }} />,
     },
     {
-        label: "Quản lí tiến độ",
+        label: "Quản lí công việc",
         link: "process",
         icon: <IoMdTrendingUp size={24} style={{ color: "rgba(28, 167, 86, 1)" }} />,
     },
     {
-        label: "Quản lí người dùng",
+        label: "Quản lí tài khoản",
         link: "user",
         icon: <IoIosContact size={24} style={{ color: "#1ca756" }} />,
     },
@@ -47,8 +47,12 @@ const Sidebar = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
+
     const path = location.pathname.split("/")[1];
-    const sidebarLinks = user?.isAdmin ? linkData : linkData.slice(0, 5);
+    const sideRole = linkData.filter(link => link.label !== "Quản lí tài khoản")
+
+    const sidebarLinks = user?.role === "NhanVien" ? sideRole : linkData;
+
 
     const closeSidebar = () => {
         dispatch(setOpenSidebar(false));
@@ -61,12 +65,12 @@ const Sidebar = () => {
                 onClick={closeSidebar}
                 className={clsx(
                     "w-full flex gap-2 justify-between rounded-full items-center text-[#464646] text-base hover:bg-[#1ca7562e] !pl-[30px] !py-[16px] ",
-                    path === link.link.split("/")[0] ? "bg-green-200 text-neutral-100" : ""
+                    path === link.link.split("/")[0] ? "bg-green-200 text-neutral-100 dark:bg-[#1ca7562e]" : ""
                 )}
             >
                 <div className='flex items-center gap-x-2'>
                     {link.icon}
-                    <span className='hover:text-[#1ca756] text-[#464646]'>{link.label}</span>
+                    <span className='hover:text-[#1ca756] text-[#464646] dark:text-white'>{link.label}</span>
                 </div>
                 <IoIosArrowForward style={{ color: "rgba(70, 70, 70, 1)" }} />
             </Link>

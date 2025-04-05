@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
+import { useSelector } from 'react-redux';
 
 const linkData = [
     {
@@ -16,10 +17,11 @@ const linkData = [
         link: "task",
     },
     {
-        label: "Tiến độ công việc",
+        label: "Công việc con",
         link: "progress",
     },
 ];
+
 
 const NavLink = ({ link }) => {
     const location = useLocation();
@@ -49,12 +51,18 @@ const NavLink = ({ link }) => {
     )
 }
 const Process = () => {
+    const { user } = useSelector((state) => state.auth);
+    const taskRole = linkData.filter((link) => link.label !== "Dự án");
+    const taskRoleAdmin = linkData.filter((link) => link.label !== "Công việc con");
+
+    const taskNav = user?.role === "NhanVien" ? taskRole : taskRoleAdmin;
+
     return (
-        <div className='h-full bg-white !m-[20px] shadow-2xl rounded-2xl'>
+        <div className='h-full bg-white !m-[20px] shadow-2xl rounded-2xl dark:bg-gray-900'>
             <div className='h-[800px] !p-[16px]'>
                 <div className='flex items-center justify-between'>
                     {
-                        linkData.map((link, index) => (
+                        taskNav.map((link, index) => (
                             <NavLink link={link} key={index} />
                         ))
                     }
